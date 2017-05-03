@@ -1,5 +1,5 @@
-
 import csv
+import os.path
 
 class Bear(object):
  	def sound(self):
@@ -49,58 +49,69 @@ class Car:
 		else:
 			self.__maxspeed= speed
 			self.__name = name
-
+			
 
 	##Working with CSV Files
-class WorkwithCSV:
+class Workwithcvs:
 	##working procedure with CSV files
 
-	__cFilename = ""
-	__FileHandler = object
-	__Fileopen = False
+	cFilename = ""
+	FileHandler = object
+	Fileopen = False
 
 	#def __init__(self, filename=None):
 	#	if filename is not None:
-	#		self.__cFilename = filename	
+	#		self.cFilename = filename	
 
 	def openfile(self, filename=None):
 		if filename is None:
 			print("Please specify the File name")
 		try:
-			self.__cFilename = filename
-			self.__FileHandler = open(self.__cFilename,"wb")
-			self.__FileHandler.close()
-
+			if os.path.isfile(filename):
+				self.Fileopen = True	
+				self.cFilename = filename
+				print("File open and ready for operation")
+			else:
+				Print("File not found!")
+				return
 		except FileNotFoundError:
-			print ("File " + self.__cFilename + " not found!")
-		finally:
-			print("File open and ready for operation")
-			return
-	
-		def AddHeaderRecord(self):
-			if self.__Fileopen is True:
-				with open(self.__cFilename,"wb") as self.__FileHandler:
-					filewriter = csv.writer(self.__FileHandler, delimiter=',',quotechar='|',quoting=csv.QUOTE_MINIMAL)
+			print ("File " + self.cFilename + " not found!")
+		
+	def AddHeaderRecord(self):
+		try:
+			if self.Fileopen is True:
+				with open(self.cFilename,"w",newline='') as self.FileHandler:
+					filewriter = csv.writer(self.FileHandler, dialect='excel')
+						##delimiter=',',quoting=csv.QUOTE_MINIMAL)
 					filewriter.writerow(['Student Name','Student Class Name','Grade'])
 			else:
 				Print("File is not found / open")
 			return
-	
+		except Exception as er: 
+			print (er.args)
+
+
 	def AddRecord(self,studentname,classname,grade):
-		if self.__Fileopen is True:
-			with open(self.__cFilename,"wb") as self.__FileHandler:
-				filewriter = csv.writer(self.__FileHandler, delimiter=',',quotechar='|',quoting=csv.QUOTE_MINIMAL)
-				filewriter.writerow([studentname,classname,grade])
+		if self.Fileopen is True:
+			try:
+				with open(self.cFilename,"a",newline='') as self.FileHandler:
+					filewriter = csv.writer(self.FileHandler, dialect='excel')
+					filewriter.writerow([studentname,classname,grade])
+			except Exception as er: 
+				print (er.args)
 		else:
 			Print("File is not found / open")	
 		return				
 
 	def DisplayRecord(self):
-		if self.__Fileopen is True:
-			with open(self.__cFilename,"wb") as self.__FileHandler:
-				filereader = csv.reader(self.__FileHandler)
-				for row in filereader:
-					print (row)			
+		if self.Fileopen is True:
+			try:
+				with open(self.cFilename,"r") as self.FileHandler:
+					filereader = csv.reader(self.FileHandler)
+					for row in filereader:
+						print (row)
+			except Exception as er: 
+				print (er.args)			
 		else:
 			Print("File is not found / open")	
 		return				

@@ -60,8 +60,15 @@ def mytesting():
 
 		##CSV File TEST
 
-		csvfile = WorkwithCSV()
-		
+		csvfile = a.Workwithcvs()
+		csvfile.openfile("Student.csv")
+		csvfile.AddHeaderRecord()
+		csvfile.AddRecord("Al","7th","A+")
+		csvfile.AddRecord("Aayan","5th","A")
+		csvfile.AddRecord("Brian","MS","B")
+		csvfile.AddRecord("Shah","MS","A")
+
+		csvfile.DisplayRecord()
 	
 
 
@@ -69,7 +76,6 @@ def mytesting():
 		print("Employee.__name__:", e.__name__)
 
 	
-		
 
 	except Exception as er: 
 		print (er.args)
