@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>219b5ca4-7e23-4b87-9542-435da2572fc0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>MyPythonDB.py</StartupFile>
+    <StartupFile>MyPython.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,7 +30,7 @@
     <Compile Include="Employee.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MyPythonDB.py" />
+    <Compile Include="MyPython.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{38c72fcd-87a6-4550-8cfd-fdc396edebf1}\3.5" />
