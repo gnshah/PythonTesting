@@ -24,6 +24,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="classtest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Employee.py">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,10 @@
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{38c72fcd-87a6-4550-8cfd-fdc396edebf1}\3.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mytextfile.txt" />
+    <Content Include="Student.csv" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
