@@ -1,5 +1,6 @@
 import Employee as e
 import classtest as a
+import SQLDB 
 
 emp = e.Employee("Shah",200)
 
@@ -70,7 +71,9 @@ def mytesting():
 
 		csvfile.DisplayRecord()
 	
-
+		##DAtabase Example
+		DB = SQLDB.SQLDB("Driver={SQL Server}; server=LENOVO-PC\TESTSQLEXPRESS;database=schoolms;uid=sa;pwd=macrosoft")
+		DB.DisplayRecord()
 
 		print("Employee.__doc__:", e.__doc__)
 		print("Employee.__name__:", e.__name__)

@@ -31,6 +31,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MyPython.py" />
+    <Compile Include="SQLDB.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{38c72fcd-87a6-4550-8cfd-fdc396edebf1}\3.5" />
