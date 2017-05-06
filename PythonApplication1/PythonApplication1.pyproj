@@ -39,6 +39,7 @@
     <InterpreterReference Include="{38c72fcd-87a6-4550-8cfd-fdc396edebf1}\3.5" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="myheader.h" />
     <Content Include="Mytextfile.txt" />
     <Content Include="Student.csv" />
   </ItemGroup>
